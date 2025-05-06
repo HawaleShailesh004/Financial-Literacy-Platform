@@ -1,1 +1,2 @@
-web: gunicorn financial_literacy_platform.wsgi
+web: gunicorn Financial_Literacy_Platform.wsgi
+
