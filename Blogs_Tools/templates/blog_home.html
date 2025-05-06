@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+
+<h1 style="margin: 1rem auto; color: var(--heading-color); font-size: 1.5rem;
+text-align: center;">Financial Literacy Blogs</h1>
+<div id="blog-container">
+    <!-- Blog posts will be inserted here by JavaScript -->
+</div>
+<script>
+    var defaultBlogImage = "{% static 'Images/blog-image.jpeg' %}";
+</script>
+<script src="{% static 'Js/blog_home.js' %}"></script>
+{% endblock body %}

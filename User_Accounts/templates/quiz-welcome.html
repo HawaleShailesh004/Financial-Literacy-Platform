@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}']'
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Financial Literacy Quiz</title>
+    <link rel="stylesheet" href="{% static 'CSS/quiz-welcome.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="welcome-container">
+        <img src="{% static 'Images/quiz-time.png' %}" alt="Quiz Time">
+        <h1>Welcome to the Financial Literacy Quiz!</h1>
+        <p>Discover your financial literacy level and learn how to manage your finances better with our personalized quiz.</p>
+        <button id="startQuizBtn">Start Quiz</button>
+    </div>
+    <div id="quizModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="closeModalBtn" class="close">&times;</span>
+        
+            <h2>Are you ready to test your knowledge?</h2>
+            <div class="ul-container">
+                <ul>
+                    <li>15 thrilling questions await you.</li>
+                    <li>Each question has 4 options.</li>
+                    <li>You have just 60 seconds per question. Think fast!</li>
+                </ul>
+            </div>
+            <button id="beginQuizBtn" class="get-started-btn">Get Started</button>
+        </div>
+    </div>
+
+    <script src="{% static 'Js/quiz-welcome.js' %}">
+       
+    </script>
+</body>
+</html>

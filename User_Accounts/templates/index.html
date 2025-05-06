@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Literacy Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+
+</head>
+<script type="text/javascript" src="{% static 'static/Js/index.js' %}"></script>
+<body>
+    <header>
+        <div class="head-container">
+            <div class="logo-div">
+                <a href="index.html">
+                    <img src="{% static 'Images/finance-platform-logo-2.png' %} " alt="Logo" style="width: 8rem; height: 3.5rem; margin-left: 4rem;margin-top: 0.1rem;">
+                </a>
+            </div>
+
+            <div class="nav-bar-div">
+                <nav class="navbar">
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">Home</a>
+                        </li>
+                        
+                        <li>
+                            <a href="{% url 'all_blogs' %}">Blog</a>
+                        </li>
+                        
+                        <li>
+                            <div class="drop-container">
+                                <a href="#">Tools</a>
+                                <div class="dropdown-content">
+                                    <a href="#" onclick="alert('Sign up Required!')">Savings Goal Calculator</a>
+                                    <a href="#" onclick="alert('Sign up Required!')">Loan Repayment Calculator</a>
+                                    <a href="#" onclick="alert('Sign up Required!')">Investment Return Calculator</a>
+                                    <a href="#" onclick="alert('Sign up Required!')">Budget Planner</a>
+                                    <a href="#" onclick="alert('Sign up Required!')">Tax Estimator</a>
+                                </div>
+                            </div>
+                            
+                        </li>
+                        <li>
+                            <a href="{% url 'quiz-welcome' %}">Quiz</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/">About</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'login' %}">Login</a>
+                        </li>
+                       
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+    <main style="margin: 3rem -0.2rem; ">
+        
+        <div class="main-container">
+            <div class="text-content">
+                <p>Master Your Finances</p>
+                <h1>Empower your financial future</h1>
+                <p>Gain the knowledge and skills you need to make informed decisions and navigate the world of finance with ease. Start your personalized learning journey today.</p>
+                <div class="main-content-btn" id="getStarted">Get started</div>
+                <div class="main-content-btn" id="takeQuiz" style="background-color: white; color:#0b0754; border: 1px solid #5652aa;
+                border-radius: 3px; box-shadow: 0 0 2px 0.01px #5652aa;">Take a quiz</div>
+            </div>
+            <div class="image-content">
+                <figure>
+                    <img class="image" src="{% static 'Images/finance.png' %}" alt="Finances" class="finance-main-content-image" style="width: 23rem; height: 18rem; filter: drop-shadow(var(--heading-color) 0.2rem 0.2rem 5px);  ">
+                </figure>
+            </div>
+
+           
+        </div>
+        <div class="custom-shape-divider-top-1708875328">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </main>
+    
+    <section class="features-section">
+        <h4 class="section-heading">Tailored Learning & Practical Tools</h4>
+        <p class="section-para">Discover self-paced modules, actionable insights, and engaging quizzes to personalize your financial journey.</p>
+        <div class="features-section-container grid grid-4-columns">
+            <div class="feature-container">
+                <div class="feature-image">
+                        <img  src="{% static 'Images/interactive-learning.png' %}" alt="Im">
+                </div>
+                <h3 class="feature-heading">Interactive Levels</h3>
+                <p class="feature-para">Dive deep into engaging lessons with diverse topics, covering budgeting, investing, and more.</p>
+            </div>
+
+            <div class="feature-container">
+                <div class="feature-image">
+                        <img  src="{% static 'Images/selfpaced.png' %}" alt="Im">
+                </div>
+                <h3 class="feature-heading">Self-paced Learning</h3>
+                <p class="feature-para">Explore modules at your own convenience, mastering financial concepts step-by-step.</p>
+            </div>
+
+            <div class="feature-container">
+                <div class="feature-image">
+                        <img  src="{% static 'Images/actionable.png' %}" alt="Im">
+                </div>
+                <h3 class="feature-heading">Actionable Insights</h3>
+                <p class="feature-para">Gain practical tools and strategies to apply your learnings and manage your finances effectively.</p>
+            </div>
+
+            <div class="feature-container">
+                <div class="feature-image">
+                        <img  src="{% static 'Images/quizes.png' %}" alt="Im">
+                </div>
+                <h3 class="feature-heading">Engaging Quizzes</h3>
+                <p class="feature-para">Test your knowledge, identify areas for improvement, and track your learning progress.</p>
+            </div>
+            <!-- <div class="feature-container">
+                <div class="feature-image">
+                        <img  src="{% static 'Images/actionable.png' %}" alt="Im">
+                </div>
+                <h3 class="feature-heading">Powerful Tools</h3>
+                <p class="feature-para">Access practical calculators, insightful trackers to manage your finances effectively.</p>
+            </div> -->
+
+        </div>
+    </section>
+
+    <section class="explore-course-section features-section">
+
+        <h4 class="section-heading">Explore Our Course</h4>
+        <p class="section-para"> Build financial knowledge and confidence with our comprehensive curriculum.</p>
+
+        <div class="explore-course-container grid grid-4-columns">
+            <div class="module-container">
+                <figure class="module-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Action" class="module-image-source">
+                </figure>
+                <h4 class="module-heading">Level 1: Foundations of Personal Finance</h4>
+                <p class="module-para">Master the essential financial terms, build a solid financial foundation, and understand key concepts like budgeting, saving, and debt management.</p>
+            </div>
+            <div class="module-container">
+                <figure class="module-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Action" class="module-image-source">
+                </figure>
+                <h4 class="module-heading">Level 2: Budgeting Essentials</h4>
+                <p class="module-para">Craft a personalized budget, conquer spending challenges, and develop effective strategies to manage your cash flow like a pro.</p>
+            </div>
+            <div class="module-container">
+                <figure class="module-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Action" class="module-image-source">
+                </figure>
+                <h4 class="module-heading">Level 3: Building Wealth</h4>
+                <p class="module-para">Explore smart saving strategies, unlock the power of investing, and learn how to build wealth responsibly.</p>
+            </div>
+            <div class="module-container">
+                <figure class="module-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Action" class="module-image-source">
+                </figure>
+                <h4 class="module-heading"> Level 4: Managing Debt</h4>
+                <p class="module-para">Develop a winning debt repayment plan, understand responsible borrowing practices, and learn effective strategies to manage different types of debt.</p>
+            </div>
+            <div class="module-container">
+                <figure class="module-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Action" class="module-image-source">
+                </figure>
+                <h4 class="module-heading"> Level 5: Financial Planning for Life Stages</h4>
+                <p class="module-para">Master the essential financial terms, build a solid financial foundation, and understand key concepts like budgeting, saving, and debt management.</p>
+            </div>
+            <div class="module-container">
+                <figure class="module-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Action" class="module-image-source">
+                </figure>
+                <h4 class="module-heading">Level 6: Protecting your Finances</h4>
+                <p class="module-para">Understand different types of insurance, create an emergency fund, and learn strategies to protect yourself from financial risks and scams.</p>
+            </div>
+            <div class="module-container">
+                <figure class="module-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Action" class="module-image-source">
+                </figure>
+                <h4 class="module-heading">Level 7: Smart Spending & Saving</h4>
+                <p class="module-para">Cultivate healthy spending habits, develop a strong savings mindset, and learn how to make informed financial decisions that align with your goals.</p>
+            </div>
+            <div class="module-container">
+                <figure class="module-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Action" class="module-image-source">
+                </figure>
+                <h4 class="module-heading">Level 8: Investing for Beginners</h4>
+                <p class="module-para">Gain fundamental knowledge about the stock market, explore different investment options, and learn how to build a diversified portfolio for long-term success.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="why-learn-finance-section">
+        <h4 class="why-learn-finance-section-heading">Why Personal Finance Matters: 4 REASONS You Should Learn</h4>
+        <p class="why-learn-finance-section-subheading"></p>
+        <div class="personal-finance-container">
+            
+            <div class="personal-finance-container-list-container grid grid-3-columns">
+                <div class="firstcolumn">
+
+                    <div class="personal-finance-item-container">
+                        <h3>Empowerment and Control</h3>
+                        <p>Gaining financial literacy equips you to make informed decisions, enabling you to take control of financial future and achieve your goals.</p>
+                    </div>
+                    <div class="personal-finance-item-container">
+                        <h3>Security & Freedom</h3>
+                        <p>Understanding personal finance allows you to manage your money effectively, build wealth, and secure your financial future. This can lead to greater peace of mind and the ability to pursue your dreams.</p>
+                    </div>
+                </div>
+                    <div class="p-f-image">
+                    <img src="{% static 'Images/p_finance-removebg-preview.png' %}" alt="a">
+                </div>
+                <div class="secondcolumn">
+
+                    <div class="personal-finance-item-container">
+                        <h3>Reduced Stress and Anxiety</h3>
+                        <p>Financial literacy empowers you to navigate financial challenges confidently, reducing stress and anxiety related to money. </p>
+                </div>
+                <div class="personal-finance-item-container">
+                    <h3>Informed Consumer Choices</h3>
+                    <p>Understanding financial concepts allows you to make informed decisions as a consumer, avoiding costly mistakes and maximizing the value you receive from your financial choices.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="learning-journey-section">
+        <h4 class="learning-journey-heading">Start your Journey With us</h4>
+        <p class="learning-journey-para">Simple & Interactive journey to learn finance with simple & Interactive <b>5 STEPS !</b></p>
+
+        <div class="steps-container grid grid-5-columns">
+            <div class="step">
+                <div class="step-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Step 1">
+                </div>
+                <h4>Read the Chapter</h4>
+                <p>Immerse yourself in the chapter and learn key financial concepts</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Step 1">
+                </div>
+                <h4>Take the Quiz</h4>
+                <p>Test your understanding with interactive quizzes and solidify your knowledge.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Step 1">
+                </div>
+                <h4>Track Your Progress</h4>
+                <p>Monitor your progress through the learning journey as you complete chapters and quizzes..</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Step 1">
+                </div>
+                <h4>Level Up!</h4>
+                <p>Celebrate your achievements and unlock new learning opportunities as you progress through the levels.
+                </p>
+            </div>
+            
+            <div class="step">
+                <div class="step-image">
+                    <img src="{% static 'Images/actionable.png' %}" alt="Step 1">
+                </div>
+                <h4>Complete the Journey</h4>
+                <p>Congratulations! You've mastered the financial concepts and are equipped to make informed financial decisions</p>
+            </div>
+           
+        </div>
+    </section>
+
+    <footer>
+        <section class="footer-section">
+            <div class="start-cta-container">
+                <div class="left-side">
+                    <h5>Ready to Take Control of Your Finances?</h5>
+                    <p> Start Your Learning Journey Today!</p>
+                    <div class="cta-button">
+                        <a>Get Started</a>
+                        <i class="fa-solid fa-circle-arrow-right" style="color: white; margin-left: 0.5rem;"></i>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <figure class="footer-cta-image">
+                        <img src="{% static 'Images/young-man-doing-financial-calculation-7068532-5751899.png' %}" alt="">
+                    </figure>
+                    
+                </div>
+            </div>
+            
+            <div class="footer-container">
+                
+                <div class="left-footer">
+                    <h5>FinSpark Academy</h5>
+                    <h6>Let's Spark Your Financial Journey with finSpark Academy!</h6>
+                    
+                    <div class="social-media-handles">
+                        <a href="#" class="fa fa-instagram"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-snapchat"></a>
+                    </div>
+                </div>
+                <div class="middle-footer">
+                    <h5>Main Links</h5>
+                    <ul>
+                        <li><a href="/Html/index.html">Home</a></li>
+                        <li><a href="{% url 'all_blogs' %}">Blog</a></li>
+                        <li><a href="/Html/quiz-welcome.html">Take a quiz</a></li>
+                        <li><a href="/">FAQ</a></li>
+                        <li><a href="/">About us</a></li>
+
+                    </ul>
+                </div>
+                <div class="right-footer">
+                    <h5>Contact us</h5>
+                    <ul>
+                        <li><a href="/">finSparkSupport@gmail.com</a></li>
+                        <li><a href="/">+91-9762265666</a></li>
+                        <li><p>Runwal Tower, Mumbai, Maharastra - 400604</p></li>
+                    </ul>
+                </div>
+
+                <div class="right2-footer">
+                    <h5>Legal Information</h5>
+                    <ul>
+                        <li><a href="{% url 'copyright' %}">Copyright &copy; finSpark.com</a></li>
+                        <li><a href="{% url 'privacyPolicy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'tAndC' %}">Terms & Conditions</a></li>
+                        <li><a href="/">Security</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <!-- <script src="https://kit.fontawesome.com/06f6354929.js" crossorigin="anonymous"></script> -->
+    <script src="{% static 'Js/index.js' %}"></script>
+       
+   
+</body>
+</html>

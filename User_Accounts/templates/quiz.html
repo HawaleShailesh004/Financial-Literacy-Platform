@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interface</title>
+    <link rel="stylesheet" href="{% static 'CSS/quiz.css' %}">
+    <link rel="stylesheet" href="static/CSS/celebration-anim.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="quiz-container" id="quiz-cont">
+        <div class="quiz-q-a-container">
+
+
+            <div class="p-container">
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="p-bar" style="width: 6.7%;"></div>
+                </div>
+            </div>
+
+            <div class="question-section">
+                <div>
+                    <h2 class="question-title">Question 1/15</h2>
+                    <p class="question-text">What does HTML stand for?</p>
+                </div>
+              
+                    <!-- <h2>Time Left</h2> -->
+                    <div class="timer animatable">
+                        <svg>
+                            <circle cx="50%" cy="50%" r="50" />
+                            <circle cx="50%" cy="50%" r="50" pathLength="1" />
+                            <text x="57" y="58" text-anchor="middle">
+                                <tspan id="timeLeft"></tspan>
+                            </text>
+                            <text x="57" y="78" text-anchor="middle">seconds</text>
+                        </svg>
+                    </div>
+                </div>
+          
+            <div class="options-section">
+                <button class="option-button">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </button>
+                <button class="option-button">Lorem ipsum dolor sit amet consectetur adipisicing elit. button>
+                    <button class="option-button">Lorem ipsum dolor sit amet consectetur adipisicing elit. </button>
+                    <button class="option-button">None of the above</button>
+            </div>
+            <div class="navigation-section">
+                <button class="nav-button" id="prevBtn">Previous</button>
+                <button class="nav-button" id="nextBtn">Next</button>
+            </div>
+
+
+        </div>
+        <div class="explanation-section">
+            
+            <div id="animationContainer" class="center"></div>
+            <div class="score-div">
+                <h2>Score : </h2>
+                <div class="score">00</div>
+            </div>
+            <div id="exp">
+                
+                <h6>Explanation</h6>
+                <div class="exp-text">
+                    <p id="explanationText">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil excepturi ipsum modi facilis sint
+                        officia cum ad. Sed illum sunt repudiandae, ducimus culpa dolorem obcaecati iusto, consequatur
+                        blanditiis itaque unde omnis laborum odio aspernatur deleniti? Aspernatur, perferendis quam aliquid
+                        velit molestiae mollitia necessitatibus accusamus numquam ipsum cumque libero commodi doloremque!
+                    </p>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="quizCompletedModal" class="modal">
+       
+        <div class="modal-content">
+           
+            <h2>Quiz Completed!</h2>
+          <img src="{% static 'Images/quiz-completed.png' %}" alt="Completed!" class="modal-image">
+          <button id="seeResultBtn">Click to See Result</button>
+        </div>
+      </div>
+      
+
+    <section class="quiz-container quiz-finished-container" id="result" style="display: none;">
+
+        <div class="confetti">
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+        </div>
+        <div class="results-container">
+      
+            <h2>Congratulations!</h2>
+            <div class="badge-container">
+                <div class="wrapper"> <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                    </svg>
+                </div>
+          
+            </div>
+            <div class="score-section">
+                <p>Your Score: <span class="user-score">8</span>/15</p>
+                <div class="p-container">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="result-p" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="feedback-section">
+                <h3 id="scoreTitle">Your Progress</h3>
+                <p id="scoreDescription">You did a great job! To further improve, consider revisiting the topics on investment strategies and
+                    budgeting basics.</p>
+            </div>
+            <div class="next-steps" style="z-index: 2;">
+                <button class="next-step-btn">Get A Complete Course!</button>
+            </div>
+        </div>
+
+
+    </section>
+
+    <script src="{% static 'Js/quiz.js' %}">
+       
+    </script>
+</body>
+
+</html>

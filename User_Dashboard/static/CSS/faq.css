@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 25px;
+}
+
+:root {
+    --text-color: #255aca;
+    --heading-color: #0b0754;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+
+/* Container for the FAQ page */
+/* Main container styling */
+.faq-container {
+    width: 80%;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for category and question headings */
+.faq-category-heading, .faq-question-heading {
+   
+    
+    margin-bottom: 10px;
+    color: var(--heading-color);
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+/* Style for collapsible buttons */
+.faq-accordion {
+    background-color: #f9f9f9;
+    color: #444;
+    cursor: pointer;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    transition: background-color 0.4s ease;
+    margin: 0.2rem;
+}
+
+.faq-accordion:hover, .faq-accordion.active {
+    background-color: #ccc;
+}
+
+/* Panel styles for detailed answers */
+.faq-panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+/* Text styling for answers */
+.faq-answer {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.8;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee; /* Visual separation between answers */
+}

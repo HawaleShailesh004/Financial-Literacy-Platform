@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block body %}
+<section class="module-container">
+    <div class="module-div">
+        <div class="module-basic-details">
+            <div class="container">
+                <img src="{% static 'Images/quiz-bg.jpg'%}" alt="Descriptive Alt Text" class="responsive-image">
+                <div class="text-content">
+                    <h1 id="module-title" style="color: white;">Module Title</h1>
+                </div>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" style="width: 50%;"></div>
+            </div>
+        </div>
+        <div class="chapters-list">
+            <div class="chapter unlocked-chapter-class">
+                <div class="chapter-background-content">
+                    <div class="text-container">
+                        <div class="span">1</div>
+                        <h6 id="c-title">Chapter Title</h6>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                </div>
+                <div class="disable-div"></div>
+            </div>
+
+            <div class="chapter unlocked-chapter-class">
+                <div class="chapter-background-content">
+                    <div class="text-container">
+                        <div class="span">2 </div>
+                        <h6 id="c-title">Chapter Title</h6>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                </div>
+                <div class="disable-div"></div>
+            </div>
+            <div class="chapter unlocked-chapter-class">
+                <div class="chapter-background-content">
+                    <div class="text-container">
+                        <div class="span">3 </div>
+                        <h6 id="c-title">Chapter Title</h6>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                </div>
+                <div class="disable-div"></div>
+            </div>
+            <div class="chapter unlocked-chapter-class">
+                <div class="chapter-background-content">
+                    <div class="text-container">
+                        <div class="span">4</div>
+                        <h6 id="c-title">Chapter Title</h6>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                </div>
+                <div class="disable-div"></div>
+            </div>
+            <div class="chapter unlocked-chapter-class">
+                <div class="chapter-background-content">
+
+                    <div class="text-container">
+                        <div class="span">5 </div>
+                        <h6 id="c-title">Chapter Title</h6>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                </div>
+                <div class="disable-div"></div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="content-container">
+        <!-- Repeat this part for each chapter -->
+
+        <div class="concepts-container">
+
+            <div class="concept">
+
+                <div id="concept-content-1" class="concept-content locked-class">
+                    <div class="locked">
+
+                        <i class="fa fa-lock" id="lock-icon"></i>
+
+                    </div>
+                    <img src="{% static '/Images/selfpaced.png' %}" alt="" class="concept-image">
+                </div>
+                <h5 class="concept-title" id="concept-1">No Concept</h5>
+
+
+            </div>
+
+            <div class="concept">
+
+                <div id="concept-content-2" class="concept-content locked-class">
+                    <div class="locked">
+
+                        <i class="fa fa-lock" id="lock-icon"></i>
+
+                    </div>
+                    <img src="{% static '/Images/selfpaced.png' %}" alt="" class="concept-image">
+                </div>
+                <h5 class="concept-title" id="concept-2">No Concept</h5>
+
+
+            </div>
+            <div class="concept">
+
+                <div id="concept-content-3" class="concept-content locked-class">
+                    <div class="locked">
+
+                        <i class="fa fa-lock" id="lock-icon"></i>
+
+                    </div>
+                    <img src="{% static '/Images/selfpaced.png' %}" alt="" class="concept-image">
+                </div>
+                <h5 class="concept-title" id="concept-3">No Concept</h5>
+
+
+            </div>
+
+        </div>
+        <div class="chapter-content-container">
+            <!-- <img src="placeholder.jpg" alt="Chapter Image" width="100" height="100"> -->
+
+
+            <h2 id="concept-title" style="font-size: 1.2rem; color: white;">No Concept - Fact</h2>
+
+
+            <div class="content">
+                <!-- Modal Structure -->
+                <div id="quizModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        
+                      <h3 id="restartHead" style="color: red; font-size: 1.3rem; font-weight: 600;">Oh snap! </h3>
+                      <p>You were so close. Let's give those questions another whirl and ace it this time!</p>
+                      <button id="restartConceptBtn">Restart Concept</button>
+                    </div>
+                  </div>
+             
+
+                <div class="quiz-div" id="quiz-div">
+                    <div class="heading">
+                        <h5 id="question">Question ?</h5>
+                        <div id="animationContainer" class="center">
+
+                            <div class="score-div">
+                                <h2>Score : </h2>
+                                <div class="score">00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="options-section">
+                        <button class="option-button">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </button>
+                        <button class="option-button">Lorem ipsum dolor sit amet consectetur adipisicing elit. button>
+                            <button class="option-button">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </button>
+                            <button class="option-button">None of the above</button>
+                    </div>
+                    <div id="exp" style="display: none;">
+
+                        <h6>Explanation</h6>
+                        <div class="exp-text">
+                            <p id="explanationText">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
+                                excepturi ipsum modi facilis sint
+                                officia cum ad. Sed illum sunt repudiandae, ducimus culpa dolorem obcaecati iusto,
+                                consequatur
+                                blanditiis itaque unde omnis laborum odio aspernatur deleniti? Aspernatur, perferendis
+                                quam aliquid
+                                velit molestiae mollitia necessitatibus accusamus numquam ipsum cumque libero commodi
+                                doloremque!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <p id="text-content-concept">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum similique
+                    reiciendis quod deleniti atque corporis ad magni natus repudiandae necessitatibus recusandae quia
+                    qui quidem quis, consequatur, temporibus id! Dolorem minus corrupti numquam ex dolores quae animi
+                    illum omnis tenetur! Atque mollitia quaerat molestiae perferendis officiis quo quos, qui enim
+                    explicabo itaque rerum fuga, quibusdam excepturi totam sapiente numquam, aliquam eum consequuntur
+                    suscipit. Et, nisi in. Soluta accusamus, corporis voluptates explicabo sint asperiores mollitia
+                    nemo, ab laudantium ex alias facere voluptatem vel atque rem, ut est perspiciatis voluptate et. Ex
+                    cumque magni quae inventore possimus at dicta. Quidem rerum asperiores praesentium?</p>
+
+            </div>
+
+            <div class="buttons" style="display: flex; gap:1rem; visibility: visible;">
+                <button class="button" id="prev">&larr;</button>
+                <button class="button" id="next">Next &#8594;</button>
+            </div>
+        </div>
+
+        <!-- <button class="go-to-chapter-quiz">Go To quiz</button> -->
+
+        <!-- End Repeat -->
+    </div>
+</section>
+<div id="footer-placeholder"></div>
+<script src="{% static 'Js/module.js' %}"></script>
+{% endblock body %}

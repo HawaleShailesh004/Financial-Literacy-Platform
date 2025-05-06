@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+
+<!-- Page specific content goes here -->
+<section class="dashboard-section">
+    <div class="userProfile-Details-div">
+
+        <div class="profile-details">
+            <div class="p-image">
+                <img id="profile-image" src="{% static '/Images/user-profile-image.png' %}" alt="">
+                <i class="fa fa-pencil" id="edit-icon" style="font-size:25px;"></i>
+            </div>
+            <p>Hello</p>
+            <p id="profile-userName">username</p>
+        </div>
+        <div class="other-details">
+            <div class="element">
+                <p id="exp-points">EXP :</p>
+            </div>
+            <div class="element">
+                <p id="current-level">Current Lvl :</p>
+            </div>
+            <div class="element">
+                <p id="coins">Coins :</p>
+            </div>
+            <div class="element">
+                <p id="badge">Badge :</p>
+            </div>
+        </div>
+    </div>
+    <div class="Academic-Details-div">
+        <div class="current-module-container">
+            <div class="module-detail">
+                <h2 id="current-module-title">Module Title</h2>
+            </div>
+            <div class="chapter-container">
+                <div class="chapter">
+                    <div id="chapter-content-1" class="chapter-content unlocked-class">
+                        <div class="locked">
+
+                            <i class="fa fa-lock" id="lock-icon"></i>
+
+                        </div>
+                        <img src="{% static '/Images/selfpaced.png' %}" alt="" class="chapter-image">
+                        <h5 class="chapter-title" id="chapter-1">Chapter Title</h5>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="p-bar-1"></div>
+                    </div>
+                </div>
+                <div class="chapter">
+                    <div id="chapter-content-2" class="chapter-content unlocked-class">
+                        <div class="locked">
+
+                            <i class="fa fa-lock" id="lock-icon"></i>
+
+                        </div>
+
+                        <img src="{% static '/Images/selfpaced.png' %}" alt="" class="chapter-image">
+                        <h5 class="chapter-title" id="chapter-2">Chapter Title</h5>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="p-bar-2"></div>
+                    </div>
+                </div>
+                <div class="chapter">
+                    <div id="chapter-content-3" class="chapter-content unlocked-class">
+                        <div class="locked">
+                            <i class="fa fa-lock" id="lock-icon"></i>
+                        </div>
+
+                        <img src="{% static '/Images/selfpaced.png' %}" alt="" class="chapter-image">
+                        <h5 class="chapter-title" id="chapter-3">Chapter Title</h5>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="p-bar-3"></div>
+                    </div>
+                </div>
+                <div class="chapter">
+                    <div id="chapter-content-4" class="chapter-content unlocked-class">
+                        <div class="locked">
+                            <i class="fa fa-lock" id="lock-icon"></i>
+                        </div>
+
+                        <img src="{% static '/Images/selfpaced.png' %}" alt="" class="chapter-image">
+                        <h5 class="chapter-title" id="chapter-4">Chapter Title</h5>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="p-bar-4"></div>
+                    </div>
+                </div>
+                <div class="chapter">
+                    <div id="chapter-content-5" class="chapter-content unlocked-class">
+                        <div class="locked">
+
+                            <i class="fa fa-lock" id="lock-icon"></i>
+
+                        </div>
+                        <img src="{% static '/Images/selfpaced.png' %}" alt="" class="chapter-image">
+                        <h5 class="chapter-title" id="chapter-5">Chapter Title</h5>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="p-bar-5"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="explore-chapters">View Module in Detail</button>
+            <p id="complete-cir">Take a look at Complete Curriculum</p>
+            <div id="curriculumModal" class="curModal">
+                <div class="cur-modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="cir-head">Curriculum Overview</h2>
+                    <div id="accordion"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="other-academic-detail-container">
+            <div class="sub-element" id="today-quiz">
+                <div class="image-with-txt">
+                    <img src="{% static '/Images/quizes.png' %}" alt="">
+                    <p>Today's Quiz!</p>
+                    <p style="margin-top: 1rem;">A Daily Dose of Discovery: Test Your Knowledge!</p>
+                </div>
+                <p style="margin: 1rem 0rem 0rem 0.2rem;     color: var(--heading-color);">Score Points!</p>
+                <button id="take-q-quiz-btn" class="sub-elment-btn"><a href="{% url 'quiz-welcome' %}">Start Quiz</a></button>
+            </div>
+            <div class="sub-element" id="explore-articles">
+                <div class="image-with-txt">
+                    <img src="{% static '/Images/actionable.png' %}" alt="">
+                    <p>Articles</p>
+                    <p style="margin-top: 1rem;">Curated Wisdom: Insights to Inspire and Inform</p>
+                </div>
+                <p style="margin: 1rem 0rem 0rem 0.2rem;     color: var(--heading-color);">Read Articles!</p>
+                <button id="read-articles-btn" class="sub-elment-btn"><a href="{% url 'all_blogs' %}">Go To Articles</a></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+
+<script src="{% static 'Js/Dashboard.js' %}"></script>
+
+{% endblock body %}

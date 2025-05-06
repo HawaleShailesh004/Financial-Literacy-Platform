@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/copyright-styles.css' %}" type="text/css">
+
+<div class="legal-container">
+    <h1 class="legal-heading">Copyright & Information</h1>
+    <p class="legal-text">The content provided on this Financial Literacy Platform, including all text, designs, graphics, images, and content are owned by or licensed to our platform.</p>
+    
+    <button class="legal-accordion">Intellectual Property Rights</button>
+    <div class="legal-panel">
+        <p class="legal-text">All intellectual properties are owned by us or our licensors and are protected by copyright and trademark laws, as well as other intellectual property laws.</p>
+    </div>
+
+    <button class="legal-accordion">User License</button>
+    <div class="legal-panel">
+        <p class="legal-text">Users are granted a limited license only for purposes of viewing the material contained on this site. Under this license you may not:</p>
+        <ul class="legal-list">
+            <li>Modify or copy the materials;</li>
+            <li>Use the materials for any public display (commercial or non-commercial);</li>
+            <li>Attempt to reverse engineer any software contained on this website;</li>
+            <li>Transfer the materials to another person or "mirror" the materials on any other server.</li>
+        </ul>
+        <p class="legal-text">This license shall automatically terminate if you violate any of these restrictions and may be terminated by us at any time.</p>
+    </div>
+
+    <button class="legal-accordion">Limitation of Liability</button>
+    <div class="legal-panel">
+        <p class="legal-text">In no event shall we be liable for any damages arising out of the use or inability to use the materials on our platform.</p>
+    </div>
+</div>
+
+<script>
+    var accordions = document.getElementsByClassName("legal-accordion");
+    for (let i = 0; i < accordions.length; i++) {
+        accordions[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+{% endblock %}

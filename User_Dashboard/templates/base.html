@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="{% static '/CSS/Dashboard.css' %}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static '/CSS/hf.css' %}">
+        <link rel="stylesheet" href="{% static '/CSS/module.css' %}">
+        <link rel="stylesheet" href="{% static '/CSS/blog_home.css' %}">
+        <link rel="stylesheet" href="{% static '/CSS/blog.css' %}">
+        <link rel="stylesheet" href="{% static '/CSS/calculators.css' %}">
+        <link rel="stylesheet" href="{% static '/CSS/editProfile.css' %}">
+        <link rel="stylesheet" href="{% static '/CSS/privacy_policy.css' %}">
+        <link rel="stylesheet" href="{% static '/CSS/tAndC.css' %}">
+        <link rel="stylesheet" href="{% static 'CSS/copyright.css' %}" >
+        <link rel="stylesheet" href="{% static 'CSS/faq.css' %}" >
+
+    </head>
+</head>
+<body>
+    <header>
+        <div class="head-container">
+            <div class="logo-div">
+                <a href="index.html">
+                    <img src="{% static '/Images/finance-platform-logo-2.png' %}" alt="Logo" style="width: 8rem; height: 3.5rem; margin-left: 4rem;margin-top: 0.1rem;">
+                </a>
+            </div>
+    
+            <div class="nav-bar-div">
+                <nav class="navbar">
+                    <ul>
+                        <li>
+                            <a href="{% url 'dashboard' %}">Dashboard</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <div class="drop-container">
+                                <a href="#">Tools</a>
+                                <div class="dropdown-content">
+                                    <a href="{% url 'calculators_with_type' type='savings' %}" >Savings Goal Calculator</a>
+                                    <a href="{% url 'calculators_with_type' type='loan' %}" >Loan Repayment Calculator</a>
+                                    <a href="{% url 'calculators_with_type' type='investment' %}" >Investment Return Calculator</a>
+                                    <a href="{% url 'calculators_with_type' type='budget' %}" >Budget Planner</a>
+                                    <a href="{% url 'calculators_with_type' type='tax' %}" >Tax Estimator</a>
+                                </div>
+                            </div>
+                            
+                        </li>
+                        
+                        <li>
+                            <a href="{% url 'all_blogs' %}">Blogs</a>
+                        </li>
+                        
+                      
+                        
+                        <li>
+                            <a href="{% url 'login' %}">Log Out</a>
+                        </li>
+                       
+    
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    {% block body %}
+    {% endblock body %}
+
+    <footer>
+        <section class="footer-section">
+     
+            <div class="footer-container">
+                
+                <div class="left-footer">
+                    <h5>FinSpark Academy</h5>
+                    <h6>Let's Spark Your Financial Journey with finSpark Academy!</h6>
+                    
+                    <div class="social-media-handles">
+                        <a href="#" class="fa fa-instagram"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-snapchat"></a>
+                    </div>
+                </div>
+                <div class="middle-footer">
+                    <h5>Main Links</h5>
+                    <ul>
+                        <li><a href="/Html/index.html">Home</a></li>
+                        <li><a href="{% url 'all_blogs' %}">Blog</a></li>
+                        <li><a href="/Html/quiz-welcome.html">Take a quiz</a></li>
+                        <li><a href="/">FAQ</a></li>
+                        <li><a href="/">About us</a></li>
+    
+                    </ul>
+                </div>
+                <div class="right-footer">
+                    <h5>Contact us</h5>
+                    <ul>
+                        <li><a href="/">finSparkSupport@gmail.com</a></li>
+                        <li><a href="/">+91-9762265666</a></li>
+                        <li><p>Runwal Tower, Mumbai, Maharastra - 400604</p></li>
+                    </ul>
+                </div>
+    
+                <div class="right2-footer">
+                    <h5>Legal Information</h5>
+                    <ul>
+                        <li><a href="{% url 'copyright' %}">Copyright &copy; finSpark.com</a></li>
+                        <li><a href="{% url 'privacyPolicy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'tAndC' %}">Terms & Conditions</a></li>
+                        <li><a href="/">Security</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </footer>
+    
+    <script src="{% static 'Js/h.js'%}"></script>
+</body>
+</html>

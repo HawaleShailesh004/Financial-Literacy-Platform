@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
+    <link rel="stylesheet" href="{% static 'CSS/login.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="head-container">
+            <div class="logo-div">
+                <a href="index.html">
+                    <img src="{% static 'Images/finance-platform-logo-2.png' %}" alt="Logo" style="width: 8rem; height: 3.5rem; margin-left: 4rem;margin-top: 0.1rem;">
+                </a>
+            </div>
+
+            <div class="nav-bar-div">
+                <nav class="navbar">
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">Home</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                        
+                        <li>
+                            <a href="{% url 'quiz-welcome' %}">Take a Quiz</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/">Tools</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/">About us</a>
+                        </li>
+                       
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="login-section">
+        <div class="details-div">
+            <h3>Login</h3>
+            <h7>Doesn't have an account yet? <a href="sign-up" style="color: #2200CC;">Sign Up</a></h7>
+
+            <form id="loginForm" method="POST"  enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="container">
+                  <label for="uname"><b>Username</b></label>
+                  <input type="text" placeholder="Email or Username" name="uname" id="uname" required style="margin-bottom: .1rem;" >
+              
+                  <label for="psw"><b>Password</b></label>
+                  <input type="password" placeholder="Password" name="psw" id="psw" >
+                  <div class="show-password" style="margin-top: 0rem; ">
+                    <input type="checkbox" id="togglePassword">
+                    <label for="togglePassword" style="font-size: 0.7rem;">Show Password</label>
+                </div>
+                      
+                  <button id="login-btn" type="button">Login</button>
+                  <label>
+                    <input type="checkbox" checked="checked" name="remember" > Remember me
+                  </label>
+                </div>
+              
+                <div class="container" style="background-color:transparent">
+                  <button type="button" class="cancelbtn">Cancel</button>
+                  <span class="psw" style="font-size: 0.8rem;">Forgot <a href="#" style="color: #2200CC;">Password?</a></span>
+                </div>
+               
+              </form>
+        </div>
+        <div class="image-div" style=" height: 20rem;position: relative;">
+            <img src="{% static 'Images/young-man-doing-financial-calculation-7068532-5751899.png' %}" alt="Login Image" style="width:32rem; height: 32rem; 
+            position: absolute; top: -6rem; left: -20rem; filter: drop-shadow(5px 5px 10px #6c6cff);">
+        </div>
+    </section>
+    <script src="{% static 'Js/login.js' %}"> </script>
+</body>
+</html>

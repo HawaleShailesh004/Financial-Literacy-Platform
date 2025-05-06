@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<!-- Savings Calculator -->
+<div id="savingsCalculator" class="calculator{% if not show_savings_calculator %} hidden{% endif %}">
+    <h2>Savings Calculator</h2>
+    <form id="savingsForm">
+        <div class="input-group">
+            <label for="initialAmount">Initial Savings (₹):</label>
+            <input type="number" id="initialAmount" placeholder="Enter initial savings" required>
+        </div>
+        <div class="input-group">
+            <label for="monthlyDeposit">Monthly Deposit (₹):</label>
+            <input type="number" id="monthlyDeposit" placeholder="Enter monthly deposit" required>
+        </div>
+        <div class="input-group">
+            <label for="interestRate">Annual Interest Rate (%):</label>
+            <input type="number" id="interestRate" placeholder="Enter annual interest rate" step="0.01" required>
+        </div>
+        <div class="input-group">
+            <label for="years">Number of Years:</label>
+            <input type="number" id="years" placeholder="Enter number of years" required>
+        </div>
+        <button type="button" id="cSavings" onclick="calculateSavings()">Calculate</button>
+    </form>
+    <div id="savingsResult"></div>
+</div>
+
+<!-- Loan Repayment Calculator -->
+<div id="loanCalculator" class="calculator{% if not show_loan_calculator %} hidden{% endif %}">
+    <h2>Loan Repayment Calculator</h2>
+    <form id="loanForm">
+        <div class="input-group">
+            <label for="loanAmount">Loan Amount (₹):</label>
+            <input type="number" id="loanAmount" placeholder="Enter loan amount" required>
+        </div>
+        <div class="input-group">
+            <label for="loanInterest">Annual Interest Rate (%):</label>
+            <input type="number" id="loanInterest" placeholder="Enter interest rate" step="0.01" required>
+        </div>
+        <div class="input-group">
+            <label for="loanYears">Loan Term (years):</label>
+            <input type="number" id="loanYears" placeholder="Enter loan term" required>
+        </div>
+        <button type="button" id="cLoan" onclick="calculateLoan()">Calculate Monthly Payment</button>
+    </form>
+    <div id="loanResult"></div>
+</div>
+
+<!-- Investment Return Calculator -->
+<div id="investmentCalculator" class="calculator{% if not show_investment_calculator %} hidden{% endif %}">
+    <h2>Investment Return Calculator</h2>
+    <form id="investmentForm">
+        <div class="input-group">
+            <label for="initialInvestment">Initial Investment Amount (₹):</label>
+            <input type="number" id="initialInvestment" placeholder="Enter initial investment" required>
+        </div>
+        <div class="input-group">
+            <label for="annualAddition">Annual Addition (₹):</label>
+            <input type="number" id="annualAddition" placeholder="Enter annual addition" required>
+        </div>
+        <div class="input-group">
+            <label for="investmentRate">Annual Interest Rate (%):</label>
+            <input type="number" id="investmentRate" placeholder="Enter interest rate" step="0.01" required>
+        </div>
+        <div class="input-group">
+            <label for="investmentYears">Number of Years:</label>
+            <input type="number" id="investmentYears" placeholder="Enter number of years" required>
+        </div>
+        <button type="button" id="cInvestment" onclick="calculateInvestment()">Calculate Future Value</button>
+    </form>
+    <div id="investmentResult"></div>
+</div>
+
+
+<!-- Budget Planner -->
+<div id="budgetPlanner" class="calculator {% if not show_budget_planner %}hidden{% endif %}">
+    <h2>Budget Planner</h2>
+    <form id="budgetForm">
+        <div class="input-group">
+            <label for="monthlyIncome">Monthly Income (₹):</label>
+            <input type="number" id="monthlyIncome" placeholder="Enter your income" required>
+        </div>
+        <div class="input-group">
+            <label for="expenseName">Expense Name:</label>
+            <input type="text" id="expenseName" placeholder="Example: Rent" required>
+        </div>
+        <div class="input-group">
+            <label for="expenseAmount">Amount (₹):</label>
+            <input type="number" id="expenseAmount" placeholder="Enter amount" required>
+        </div>
+        <button type="button" id="addExpenseButton" onclick="addExpense()">Add Expense</button>
+    </form>
+    <ul id="expenseList"></ul>
+    <div>Total Expenses: ₹<span id="totalExpenses">0</span></div>
+    <div>Remaining Budget: ₹<span id="remainingBudget">0</span></div>
+</div>
+
+<!-- Tax Estimator -->
+<div id="taxEstimator" class="calculator {% if not show_tax_estimator %}hidden{% endif %}">
+    <h2>Tax Estimator</h2>
+    <form id="taxForm">
+      <div class="input-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Enter your age">
+      </div>
+  
+      <div class="tax-inputs">
+        <div class="input-group">
+            <h2>Income Sources</h2>
+            <label for="incomeSalary">Salary:</label>
+            <input type="number" id="incomeSalary" placeholder="Enter salary income" title="Income earned from your regular employment">
+            <label for="incomeHouseProperty">House Property:</label>
+            <input type="number" id="incomeHouseProperty" placeholder="Enter income from house property" title="Rental income or any other income from your property">
+            <label for="incomeCapitalGains">Capital Gains:</label>
+            <input type="number" id="incomeCapitalGains" placeholder="Enter capital gains income" title="Profits from selling capital assets like stocks, mutual funds, etc.">
+            <label for="incomeBusiness">Business/Profession:</label>
+            <input type="number" id="incomeBusiness" placeholder="Enter income from business/profession" title="Income earned from your business or professional activities">
+            <label for="incomeOtherSources">Other Sources:</label>
+            <input type="number" id="incomeOtherSources" placeholder="Enter income from other sources" title="Income from any other source not mentioned above">
+          </div>
+  
+        <div class="input-group">
+            <h2>Deductions</h2>
+            <label for="deduction80C">Sec 80C Investments:</label>
+            <input type="number" id="deduction80C" placeholder="Enter deductions under Sec 80C" title="Deductions allowed under Section 80C of the Income Tax Act for investments in specific schemes">
+            <label for="deduction80D">Medical Insurance:</label>
+            <input type="number" id="deduction80D" placeholder="Enter deductions for medical insurance" title="Deductions allowed for premiums paid towards health insurance policies">
+            <label for="deductionHRA">HRA Exemption:</label>
+            <input type="number" id="deductionHRA" placeholder="Enter HRA exemption amount" title="House Rent Allowance exemption received from your employer">
+            <label for="deductionInterestLoan">Interest on Home Loan:</label>
+            <input type="number" id="deductionInterestLoan" placeholder="Enter interest paid on home loan" title="Interest paid on a loan taken for purchase or construction of a residential property">
+            <label for="deductionProfessionalTax">Professional Tax Paid:</label>
+            <input type="number" id="deductionProfessionalTax" placeholder="Enter professional tax paid" title="Tax levied by some state governments on professions or trades">
+      
+        </div>
+      </div>
+  
+      <button type="button" id="calculateTaxButton" onclick="calculateTax()">Calculate Tax</button>
+    </form>
+    <div>Estimated Tax Liability: ₹<span id="taxLiability">0</span></div>
+  </div>
+  
+
+<!-- Dynamic Calculator Controls -->
+<div class="calculator-controls">
+    <h3>Other Calculators</h3>
+    <div class="button-grid">
+        {% if type != 'savings' %}
+        <a href="{% url 'calculators_with_type' type='savings' %}" class="othercalcis">Savings Calculator</a>
+        {% endif %}
+        {% if type != 'loan' %}
+        <a href="{% url 'calculators_with_type' type='loan' %}" class="othercalcis">Loan Repayment Calculator</a>
+        {% endif %}
+        {% if type != 'investment' %}
+       
+        <a href="{% url 'calculators_with_type' type='investment' %}" class="othercalcis">Investment Return Calculator</a>
+        {% endif %}
+        {% if type != 'budget' %}
+        <a href="{% url 'calculators_with_type' type='budget' %}" class="othercalcis">Budget Planner</a>
+        {% endif %}
+        {% if type != 'tax' %}
+        <a href="{% url 'calculators_with_type' type='tax' %}" class="othercalcis">Tax Estimator</a>
+        {% endif %}
+       
+    </div>
+</div>
+
+
+<script src="{% static 'Js/calculators.js' %}"></script>
+
+{% endblock body %}
