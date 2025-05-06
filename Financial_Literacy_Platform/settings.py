@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import dj_database_url
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,13 +25,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
 # 'django-insecure-iha&-_@3yd-)a0$4qz15_3(gd!&49uqpl#yiy7tekopz_(8)#6'
+SECRET_KEY = os.getenv("SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+DEBUG = "False"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(" ")
+
+
 
 
 # Application definition
@@ -87,9 +93,16 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse(os.environ.get("DATABASE_URL"))
 
-# "postgresql://finwise_8x0y_user:KWmY0woGBQiAB3NIm8m962wDfuJnRPTq@dpg-d0cs6oadbo4c73fpl0kg-a.oregon-postgres.render.com/finwise_8x0y"
+
+
+
+DATABASES = {
+    'default': dj_database_url.parse(os.getenv("DATABASE_URL", ""))
+}
+
+
+#  ""
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -129,6 +142,9 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
+
+# The directory where static files will be collected to
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

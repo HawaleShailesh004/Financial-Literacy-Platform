@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 25px;
+}
+
+:root {
+    --text-color: #255aca;
+    --heading-color: #0b0754;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+.privacy-container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+h1, h2 {
+    color: var(--heading-color);
+    font-size: 1.3rem;
+}
+p, ul {
+    margin: 20px 0;
+    font-size: 0.7rem;
+}
+.privacy-accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    margin: 0.2rem;
+}
+.privacy-accordion.active, .privacy-accordion:hover {
+    background-color: #ccc;
+}
+.privacy-panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}

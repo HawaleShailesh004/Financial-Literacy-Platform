@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 25px;
+}
+
+:root {
+    --text-color: #255aca;
+    --heading-color: #0b0754;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* Main container for the copyright page */
+.legal-container {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles for the page */
+.legal-heading {
+    color: var(--heading-color);
+    font-size: 1.3rem;
+    margin-top: 1rem;
+}
+
+/* General text style for content */
+.legal-text {
+    margin: 20px 0;
+    font-size: 0.7rem;
+}
+
+/* Style for lists within the content */
+.legal-list {
+    list-style-type: disc;
+    margin-left: 40px;
+}
+
+/* Accordion styles for expandable sections */
+.legal-accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    margin: 0.2rem;
+}
+
+
+
+.legal-accordion:hover, .legal-accordion.active {
+    background-color: #ccc;
+}
+
+/* Panel styling for accordion content */
+.legal-panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
