@@ -1,4 +1,4 @@
-make it more clean beutifull professional # Financial Literacy Platform
+# Finwise - Finanical Literacy Platform
 
 A web-based platform designed to help beginners learn about finance through interactive quizzes, blogs, and calculators. This platform covers core financial concepts and helps users track their learning progress in a structured and engaging way.
 
