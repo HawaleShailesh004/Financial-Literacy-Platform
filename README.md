@@ -2,9 +2,11 @@
 
 A web-based platform designed to help beginners learn about finance through Various modules with interactive quizzes, blogs, and calculators. This platform covers core financial concepts and helps users track their learning progress in a structured and engaging way.
 
+
+
 ---
 
-## 🔗 Live Demo
+## 🔗 Live Demo (Desktop Optimized)
 
 [https://financial-literacy-platform.onrender.com/](https://financial-literacy-platform.onrender.com/)
 
@@ -160,6 +162,7 @@ python manage.py loaddata initial_data.json
 * 📚 Expand the **financial literacy content** and add more engaging quizzes.
 * 🧮 Add more advanced **financial calculators and planning tools**.
 * 📱 Improve **mobile responsiveness** and develop a **mobile app version** for wider accessibility.
+
 
 ---
 
