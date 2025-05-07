@@ -1,1 +1,13 @@
+# Ignore .env file (environment variables)
 .env
+
+# Ignore dumped data (backups or other data dumps)
+dumpeddata/
+
+# Ignore static files (these will be generated using `collectstatic`)
+staticfiles/
+
+# Ignore Python bytecode caches
+__pycache__/
+*/__pycache__/
+*/migrations/__pycache__/
