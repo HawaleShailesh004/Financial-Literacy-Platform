@@ -1,6 +1,6 @@
 # Finwise - Finanical Literacy Platform
 
-A web-based platform designed to help beginners learn about finance through interactive quizzes, blogs, and calculators. This platform covers core financial concepts and helps users track their learning progress in a structured and engaging way.
+A web-based platform designed to help beginners learn about finance through Various modules with interactive quizzes, blogs, and calculators. This platform covers core financial concepts and helps users track their learning progress in a structured and engaging way.
 
 ---
 
@@ -21,13 +21,13 @@ A web-based platform designed to help beginners learn about finance through inte
 
 ## 📌 Project Description
 
-This Financial Literacy Platform aims to provide a comprehensive and interactive learning experience for beginners in finance, regardless of their age. It helps users enhance their understanding of financial concepts through quizzes, blogs, and calculators. The platform is designed to be engaging and educational, focusing on financial literacy in an easy-to-understand format.
+This Financial Literacy Platform aims to provide a comprehensive and interactive learning experience for beginners in finance, regardless of their age. It helps users enhance their understanding of financial concepts with quizzes, blogs, and calculators. The platform is designed to be engaging and educational, focusing on financial literacy in an easy-to-understand format.
 
 ---
 
 ## ✅ Why I Built It
 
-The primary goal of this project was to create an accessible platform where users can learn the basics of finance and improve their financial literacy through interactive modules. By including quizzes, financial calculators, and a personalized user dashboard, the platform serves as a comprehensive learning tool for people who are new to managing their finances.
+The primary goal of this project was to create an accessible platform where users can learn the basics of finance and improve their financial literacy through interactive modules. By including content about finance with quizzes, financial calculators, and a personalized user dashboard, the platform serves as a comprehensive learning tool for people who are new to managing their finances.
 
 ---
 
@@ -61,9 +61,11 @@ The primary goal of this project was to create an accessible platform where user
 * **Blogs:**                                              
   Read informative blogs related to finance.
   
-* **Finance Calculators:**
+* **Finance Tools:**
   * **Savings Goal Calculator**
   * **Loan Repayment Calculator**
+  * **Tax Saving Calculator**
+  * **Budget Planner**
     
 * **Modules and Chapters:**
   * 7 core modules, each with 5 chapters.
