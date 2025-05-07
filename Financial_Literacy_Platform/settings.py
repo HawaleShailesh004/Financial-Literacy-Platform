@@ -96,6 +96,18 @@ WSGI_APPLICATION = 'Financial_Literacy_Platform.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'financial_literacy_db',  # Your DB name
+#         'USER': 'shailesh_user',          # Or 'postgres'
+#         'PASSWORD': 'Pass',      # Your password
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
+
 
 
 
