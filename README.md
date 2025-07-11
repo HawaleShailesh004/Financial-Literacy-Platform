@@ -1,14 +1,25 @@
-# Finwise - Finanical Literacy Platform
+# 💸 Finwise – Financial Literacy Platform
 
-A web-based platform designed to help beginners learn about finance through Various modules with interactive quizzes, blogs, and calculators. This platform covers core financial concepts and helps users track their learning progress in a structured and engaging way.
+> A web-based platform designed to help beginners learn about finance through interactive modules, quizzes, blogs, and calculators.
 
+![Home Preview](screenshots/home.png)
 
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![HTML](https://img.shields.io/badge/HTML-5-E34F26?logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=yellow)
+![Django](https://img.shields.io/badge/Backend-Django-092E20?logo=django)
+![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql)
+![Render](https://img.shields.io/badge/Hosting-Render-430098?logo=render)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
 ---
 
 ## 🔗 Live Demo (Desktop Optimized)
 
-[https://financial-literacy-platform.onrender.com/](https://financial-literacy-platform.onrender.com/)
+🌐 [https://financial-literacy-platform.onrender.com/](https://financial-literacy-platform.onrender.com/)
+
 
 ---
 
