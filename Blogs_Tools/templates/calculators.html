@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block body %}
+
 <!-- Savings Calculator -->
 <div id="savingsCalculator" class="calculator{% if not show_savings_calculator %} hidden{% endif %}">
     <h2>Savings Calculator</h2>
@@ -73,7 +74,6 @@
     <div id="investmentResult"></div>
 </div>
 
-
 <!-- Budget Planner -->
 <div id="budgetPlanner" class="calculator {% if not show_budget_planner %}hidden{% endif %}">
     <h2>Budget Planner</h2>
@@ -101,47 +101,63 @@
 <div id="taxEstimator" class="calculator {% if not show_tax_estimator %}hidden{% endif %}">
     <h2>Tax Estimator</h2>
     <form id="taxForm">
-      <div class="input-group">
-        <label for="age">Age:</label>
-        <input type="number" id="age" placeholder="Enter your age">
-      </div>
-  
-      <div class="tax-inputs">
         <div class="input-group">
-            <h2>Income Sources</h2>
-            <label for="incomeSalary">Salary:</label>
-            <input type="number" id="incomeSalary" placeholder="Enter salary income" title="Income earned from your regular employment">
-            <label for="incomeHouseProperty">House Property:</label>
-            <input type="number" id="incomeHouseProperty" placeholder="Enter income from house property" title="Rental income or any other income from your property">
-            <label for="incomeCapitalGains">Capital Gains:</label>
-            <input type="number" id="incomeCapitalGains" placeholder="Enter capital gains income" title="Profits from selling capital assets like stocks, mutual funds, etc.">
-            <label for="incomeBusiness">Business/Profession:</label>
-            <input type="number" id="incomeBusiness" placeholder="Enter income from business/profession" title="Income earned from your business or professional activities">
-            <label for="incomeOtherSources">Other Sources:</label>
-            <input type="number" id="incomeOtherSources" placeholder="Enter income from other sources" title="Income from any other source not mentioned above">
-          </div>
-  
-        <div class="input-group">
-            <h2>Deductions</h2>
-            <label for="deduction80C">Sec 80C Investments:</label>
-            <input type="number" id="deduction80C" placeholder="Enter deductions under Sec 80C" title="Deductions allowed under Section 80C of the Income Tax Act for investments in specific schemes">
-            <label for="deduction80D">Medical Insurance:</label>
-            <input type="number" id="deduction80D" placeholder="Enter deductions for medical insurance" title="Deductions allowed for premiums paid towards health insurance policies">
-            <label for="deductionHRA">HRA Exemption:</label>
-            <input type="number" id="deductionHRA" placeholder="Enter HRA exemption amount" title="House Rent Allowance exemption received from your employer">
-            <label for="deductionInterestLoan">Interest on Home Loan:</label>
-            <input type="number" id="deductionInterestLoan" placeholder="Enter interest paid on home loan" title="Interest paid on a loan taken for purchase or construction of a residential property">
-            <label for="deductionProfessionalTax">Professional Tax Paid:</label>
-            <input type="number" id="deductionProfessionalTax" placeholder="Enter professional tax paid" title="Tax levied by some state governments on professions or trades">
-      
+            <label for="age">Age:</label>
+            <input type="number" id="age" placeholder="Enter your age">
         </div>
-      </div>
-  
-      <button type="button" id="calculateTaxButton" onclick="calculateTax()">Calculate Tax</button>
+        <div class="tax-inputs">
+            <div class="input-group">
+                <h2>Income Sources</h2>
+                <label for="incomeSalary">Salary:</label>
+                <input type="number" id="incomeSalary" placeholder="Enter salary income">
+                <label for="incomeHouseProperty">House Property:</label>
+                <input type="number" id="incomeHouseProperty" placeholder="Enter house income">
+                <label for="incomeCapitalGains">Capital Gains:</label>
+                <input type="number" id="incomeCapitalGains" placeholder="Enter capital gains">
+                <label for="incomeBusiness">Business/Profession:</label>
+                <input type="number" id="incomeBusiness" placeholder="Enter business income">
+                <label for="incomeOtherSources">Other Sources:</label>
+                <input type="number" id="incomeOtherSources" placeholder="Enter other income">
+            </div>
+            <div class="input-group">
+                <h2>Deductions</h2>
+                <label for="deduction80C">Sec 80C:</label>
+                <input type="number" id="deduction80C" placeholder="Enter Sec 80C deductions">
+                <label for="deduction80D">Medical Insurance:</label>
+                <input type="number" id="deduction80D" placeholder="Enter 80D deductions">
+                <label for="deductionHRA">HRA:</label>
+                <input type="number" id="deductionHRA" placeholder="Enter HRA deductions">
+                <label for="deductionInterestLoan">Home Loan Interest:</label>
+                <input type="number" id="deductionInterestLoan" placeholder="Enter loan interest">
+                <label for="deductionProfessionalTax">Professional Tax:</label>
+                <input type="number" id="deductionProfessionalTax" placeholder="Enter professional tax">
+            </div>
+        </div>
+        <button type="button" id="calculateTaxButton" onclick="calculateTax()">Calculate Tax</button>
     </form>
     <div>Estimated Tax Liability: ₹<span id="taxLiability">0</span></div>
-  </div>
-  
+</div>
+
+<!-- 🏠 Mortgage Calculator -->
+<div id="mortgageCalculator" class="calculator{% if not show_mortgage_calculator %} hidden{% endif %}">
+    <h2>Mortgage Calculator</h2>
+    <form id="mortgageForm">
+        <div class="input-group">
+            <label for="mortgageAmount">Loan Amount (₹):</label>
+            <input type="number" id="mortgageAmount" placeholder="Enter loan amount" required>
+        </div>
+        <div class="input-group">
+            <label for="mortgageRate">Annual Interest Rate (%):</label>
+            <input type="number" id="mortgageRate" placeholder="Enter interest rate" step="0.01" required>
+        </div>
+        <div class="input-group">
+            <label for="mortgageYears">Loan Term (years):</label>
+            <input type="number" id="mortgageYears" placeholder="Enter loan term in years" required>
+        </div>
+        <button type="button" id="cMortgage" onclick="calculateMortgage()">Calculate Mortgage</button>
+    </form>
+    <div id="mortgageResult"></div>
+</div>
 
 <!-- Dynamic Calculator Controls -->
 <div class="calculator-controls">
@@ -154,7 +170,6 @@
         <a href="{% url 'calculators_with_type' type='loan' %}" class="othercalcis">Loan Repayment Calculator</a>
         {% endif %}
         {% if type != 'investment' %}
-       
         <a href="{% url 'calculators_with_type' type='investment' %}" class="othercalcis">Investment Return Calculator</a>
         {% endif %}
         {% if type != 'budget' %}
@@ -163,11 +178,11 @@
         {% if type != 'tax' %}
         <a href="{% url 'calculators_with_type' type='tax' %}" class="othercalcis">Tax Estimator</a>
         {% endif %}
-       
+        {% if type != 'mortgage' %}
+        <a href="{% url 'calculators_with_type' type='mortgage' %}" class="othercalcis">Mortgage Calculator</a>
+        {% endif %}
     </div>
 </div>
 
-
 <script src="{% static 'Js/calculators.js' %}"></script>
-
 {% endblock body %}
