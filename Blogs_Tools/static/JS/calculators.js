@@ -1,258 +1,185 @@
-document.addEventListener("DOMContentLoaded", function () {
-  function calculateLoan() {
-    const amount = parseFloat(document.getElementById("loanAmount").value);
-    const interest =
-      parseFloat(document.getElementById("loanInterest").value) / 100 / 12;
-    const years = parseInt(document.getElementById("loanYears").value);
-    const payments = years * 12;
-    const x = Math.pow(1 + interest, payments);
-    const monthly = (amount * x * interest) / (x - 1);
+document.addEventListener("DOMContentLoaded", () => {
+  /* ---------- 🔧 Utility Functions ---------- */
 
-    document.getElementById(
-      "loanResult"
-    ).textContent = `Monthly Payment: ${monthly.toFixed(2)}`;
+  const getValue = (id) => parseFloat(document.getElementById(id).value) || 0;
+  const getInt = (id) => parseInt(document.getElementById(id).value) || 0;
+  const setText = (id, text) => (document.getElementById(id).textContent = text);
+
+  /* ---------- 💰 Loan Calculator ---------- */
+  function calculateLoan() {
+    const amount = getValue("loanAmount");
+    const monthlyRate = getValue("loanInterest") / 100 / 12;
+    const years = getInt("loanYears");
+    const totalPayments = years * 12;
+
+    const x = Math.pow(1 + monthlyRate, totalPayments);
+    const monthly = (amount * x * monthlyRate) / (x - 1);
+
+    setText("loanResult", Monthly Payment: ₹${monthly.toFixed(2)});
   }
 
+  /* ---------- 📈 Investment Calculator ---------- */
   function calculateInvestment() {
-    const principal = parseFloat(
-      document.getElementById("initialInvestment").value
-    );
-    const annualAdd = parseFloat(
-      document.getElementById("annualAddition").value
-    );
-    const rate =
-      parseFloat(document.getElementById("investmentRate").value) / 100;
-    const years = parseInt(document.getElementById("investmentYears").value);
+    const principal = getValue("initialInvestment");
+    const annualAddition = getValue("annualAddition");
+    const rate = getValue("investmentRate") / 100;
+    const years = getInt("investmentYears");
+
     let futureValue = principal * Math.pow(1 + rate, years);
 
     for (let i = 1; i <= years; i++) {
-      futureValue += annualAdd * Math.pow(1 + rate, years - i);
+      futureValue += annualAddition * Math.pow(1 + rate, years - i);
     }
 
-    document.getElementById(
-      "investmentResult"
-    ).textContent = `Future Value: ₹{futureValue.toFixed(2)}`;
+    setText("investmentResult", Future Value: ₹${futureValue.toFixed(2)});
   }
 
+  /* ---------- 🏦 Savings Calculator ---------- */
   function calculateSavings() {
-    let initialAmount = parseFloat(
-      document.getElementById("initialAmount").value
-    );
-    let monthlyDeposit = parseFloat(
-      document.getElementById("monthlyDeposit").value
-    );
-    let interestRate = parseFloat(
-      document.getElementById("interestRate").value
-    );
-    let years = parseInt(document.getElementById("years").value);
+    let total = getValue("initialAmount");
+    const monthlyDeposit = getValue("monthlyDeposit");
+    const monthlyRate = getValue("interestRate") / 100 / 12;
+    const months = getInt("years") * 12;
 
-    let totalAmount = initialAmount;
-    let monthlyInterestRate = interestRate / 100 / 12;
-
-    for (let i = 0; i < years * 12; i++) {
-      totalAmount += monthlyDeposit;
-      totalAmount += totalAmount * monthlyInterestRate;
+    for (let i = 0; i < months; i++) {
+      total += monthlyDeposit;
+      total += total * monthlyRate;
     }
 
-    document.getElementById("savingsResult").textContent =
-      "Total Savings: $" + totalAmount.toFixed(2);
+    setText("savingsResult", Total Savings: ₹${total.toFixed(2)});
   }
 
+  /* ---------- 🧾 Expense Tracker ---------- */
   function addExpense() {
-    const name = document.getElementById("expenseName").value;
-    const amount = parseFloat(document.getElementById("expenseAmount").value);
-    if (!name || isNaN(amount) || amount <= 0) {
+    const name = document.getElementById("expenseName").value.trim();
+    const amount = getValue("expenseAmount");
+    if (!name || amount <= 0) {
       alert("Please enter a valid expense name and amount.");
       return;
     }
-    const list = document.getElementById("expenseList");
+
     const entry = document.createElement("li");
-    entry.appendChild(document.createTextNode(name + ": $" + amount));
-    list.appendChild(entry);
+    entry.textContent = ${name}: ₹${amount.toFixed(2)};
+    document.getElementById("expenseList").appendChild(entry);
 
     const total =
       parseFloat(document.getElementById("totalExpenses").textContent) || 0;
-    document.getElementById("totalExpenses").textContent = (
-      total + amount
-    ).toFixed(2);
+    setText("totalExpenses", (total + amount).toFixed(2));
     updateRemainingBudget();
   }
 
   function updateRemainingBudget() {
-    const income =
-      parseFloat(document.getElementById("monthlyIncome").value) || 0;
-    const expenses =
-      parseFloat(document.getElementById("totalExpenses").textContent) || 0;
-    document.getElementById("remainingBudget").textContent = (
-      income - expenses
-    ).toFixed(2);
+    const income = getValue("monthlyIncome");
+    const expenses = parseFloat(
+      document.getElementById("totalExpenses").textContent
+    ) || 0;
+
+    setText("remainingBudget", (income - expenses).toFixed(2));
   }
 
-  // Tax Estimator Functions
+  /* ---------- 🧮 Tax Estimator ---------- */
   function calculateTax() {
-    // Input Values (Replace with your actual values)
-    const age = parseInt(document.getElementById("age").value);
-    const incomeSalary = parseFloat(
-      document.getElementById("incomeSalary").value
-    );
-    const incomeHouseProperty = parseFloat(
-      document.getElementById("incomeHouseProperty").value
-    );
-    const incomeCapitalGains = parseFloat(
-      document.getElementById("incomeCapitalGains").value
-    );
-    const incomeBusiness = parseFloat(
-      document.getElementById("incomeBusiness").value
-    );
-    const incomeOtherSources = parseFloat(
-      document.getElementById("incomeOtherSources").value
-    );
-
-    const deduction80C = parseFloat(
-      document.getElementById("deduction80C").value
-    );
-    const deduction80D = parseFloat(
-      document.getElementById("deduction80D").value
-    );
-    const deductionHRA = parseFloat(
-      document.getElementById("deductionHRA").value
-    );
-    const deductionInterestLoan = parseFloat(
-      document.getElementById("deductionInterestLoan").value
-    );
-    const deductionProfessionalTax = parseFloat(
-      document.getElementById("deductionProfessionalTax").value
-    );
-
-    // Calculation Steps
-
-    // 1. Calculate Total Income
-    let totalIncome =
-      incomeSalary +
-      incomeHouseProperty +
-      incomeCapitalGains +
-      incomeBusiness +
-      incomeOtherSources;
-
-    // 2. Calculate Total Deductions
-    let totalDeductions =
-      deduction80C +
-      deduction80D +
-      deductionHRA +
-      deductionInterestLoan +
-      deductionProfessionalTax;
-
-    // 3. Consider Senior Citizen Benefits (placeholder logic, replace with actual rules)
-    if (age >= 60) {
-      totalDeductions += 50000; // Add additional deduction for senior citizens (replace with actual benefit)
-    }
-
-    // 4. Calculate Taxable Income
-    let taxableIncome = totalIncome - totalDeductions;
-
-    // 5. Replace with Actual Tax Slabs and Rates for FY 24-25 (placeholder values)
-    const taxSlabs = [
-      { min: 0, max: 250000, rate: 0 }, // No tax up to Rs. 2,50,000
-      { min: 250001, max: 500000, rate: 0.05 }, // 5% tax on income between Rs. 2,50,001 and Rs. 5,00,000
-      { min: 500001, max: 1000000, rate: 0.2 }, // 20% tax on income exceeding Rs. 5,00,000
-      // Add more slabs as needed for higher income brackets
+    const inputs = [
+      "incomeSalary",
+      "incomeHouseProperty",
+      "incomeCapitalGains",
+      "incomeBusiness",
+      "incomeOtherSources",
+    ];
+    const deductions = [
+      "deduction80C",
+      "deduction80D",
+      "deductionHRA",
+      "deductionInterestLoan",
+      "deductionProfessionalTax",
     ];
 
-    // 6. Calculate Tax Amount
+    const age = getInt("age");
+    const totalIncome = inputs.reduce((sum, id) => sum + getValue(id), 0);
+    let totalDeductions = deductions.reduce((sum, id) => sum + getValue(id), 0);
+
+    // Senior citizen bonus deduction
+    if (age >= 60) totalDeductions += 50000;
+
+    let taxableIncome = totalIncome - totalDeductions;
+
+    const taxSlabs = [
+      { min: 0, max: 250000, rate: 0 },
+      { min: 250001, max: 500000, rate: 0.05 },
+      { min: 500001, max: 1000000, rate: 0.2 },
+      // Extend slabs as needed
+    ];
+
     let taxAmount = 0;
-    for (const slab of taxSlabs) {
-      if (taxableIncome > slab.max) {
-        taxAmount += (slab.max - slab.min) * slab.rate;
-        taxableIncome -= slab.max - slab.min;
+    for (const { min, max, rate } of taxSlabs) {
+      if (taxableIncome > max) {
+        taxAmount += (max - min) * rate;
       } else {
-        taxAmount += taxableIncome * slab.rate;
+        taxAmount += Math.max(taxableIncome - min, 0) * rate;
         break;
       }
     }
 
-    // 7. Display Tax Liability
-    const resultDiv = document.getElementById("taxLiability");
-    resultDiv.textContent = taxAmount.toFixed(2);
+    setText("taxLiability", Tax Payable: ₹${taxAmount.toFixed(2)});
   }
 
-  // Add event listeners for buttons
-  document
-    .getElementById("cSavings")
-    .addEventListener("click", calculateSavings);
-  document.getElementById("cLoan").addEventListener("click", calculateLoan);
-  document
-    .getElementById("cInvestment")
-    .addEventListener("click", calculateInvestment);
-  document
-    .querySelector("#addExpenseButton")
-    .addEventListener("click", addExpense);
-  document
-    .querySelector("#calculateTaxButton")
-    .addEventListener("click", calculateTax);
-
-  const buttons = document.querySelectorAll(".button-grid button");
-  buttons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const calculatorType = this.getAttribute("onclick").match(/'([^']+)'/)[1];
-      showCalculator(calculatorType);
-    });
-  });
-
+  /* ---------- 🧠 Calculator View Manager ---------- */
   const calculators = document.querySelectorAll(".calculator");
-  const buttonss = document.querySelectorAll(".button-grid button");
+  const buttons = document.querySelectorAll(".button-grid button");
 
-  function showCalculator(selectedCalculator) {
-    // Hide all calculators and show only the selected one
-    calculators.forEach((calculator) => {
-      if (calculator.id === selectedCalculator) {
-        calculator.classList.remove("hidden");
-      } else {
-        calculator.classList.add("hidden");
-      }
-    });
+  function showCalculator(targetId) {
+    calculators.forEach((calc) =>
+      calc.id === targetId
+        ? calc.classList.remove("hidden")
+        : calc.classList.add("hidden")
+    );
 
-    // Update button visibility: Hide the button for the active calculator
-    buttonss.forEach((button) => {
-      const targetCalculator = button.onclick.toString().match(/'([^']+)'/)[1];
-      if (targetCalculator === selectedCalculator) {
-        button.style.display = "none";
-      } else {
-        button.style.display = "inline-block";
-      }
+    buttons.forEach((btn) => {
+      const match = btn.getAttribute("onclick")?.match(/'([^']+)'/);
+      const target = match ? match[1] : null;
+      btn.style.display = target === targetId ? "none" : "inline-block";
     });
   }
 
-  // Attach event listeners to buttons
-  buttonss.forEach((button) => {
-    button.addEventListener("click", function () {
-      const targetCalculator = this.onclick.toString().match(/'([^']+)'/)[1];
-      showCalculator(targetCalculator);
-    });
+  /* ---------- 🎛 Event Listeners ---------- */
+  document.getElementById("cLoan").addEventListener("click", calculateLoan);
+  document.getElementById("cInvestment").addEventListener("click", calculateInvestment);
+  document.getElementById("cSavings").addEventListener("click", calculateSavings);
+  document.getElementById("addExpenseButton").addEventListener("click", addExpense);
+  document.getElementById("calculateTaxButton").addEventListener("click", calculateTax);
+
+  // Handle calculator selection buttons
+  document.querySelectorAll(".calc-selector").forEach((btn) => {
+    btn.addEventListener("click", () => showCalculator(btn.dataset.type));
   });
 
-  function updateButtonVisibility(activeType) {
-    buttons.forEach((button) => {
-      const buttonType =
-        button.getAttribute("onclick").match(/'([^']+)'Calculator/)[1] +
-        "Calculator";
-      if (buttonType === activeType) {
-        button.style.display = "none";
-      } else {
-        button.style.display = "inline-block";
-      }
-    });
-  }
-
-  document.querySelectorAll(".calc-selector").forEach((button) => {
-    button.addEventListener("click", function () {
-      const calculatorType = this.getAttribute("data-type");
-      // alert(calculatorType)
-      showCalculator(calculatorType);
-    });
-  });
-
-  const urlHash = window.location.hash.replace("#", "");
-  if (urlHash) {
-    showCalculator(urlHash);
-  }
+  // Handle initial hash-based navigation (e.g., #loanCalculator)
+  const hash = window.location.hash.replace("#", "");
+  if (hash) showCalculator(hash);
 });
+
+/* ---------- 🏠 Mortgage Calculator ---------- */
+function calculateMortgage() {
+  const principal = getValue("mortgageAmount");
+  const annualRate = getValue("mortgageRate") / 100;
+  const years = getInt("mortgageYears");
+
+  const monthlyRate = annualRate / 12;
+  const totalPayments = years * 12;
+
+  if (principal <= 0 || annualRate <= 0 || years <= 0) {
+    alert("Please enter valid mortgage details.");
+    return;
+  }
+
+  const x = Math.pow(1 + monthlyRate, totalPayments);
+  const monthlyPayment = (principal * x * monthlyRate) / (x - 1);
+  const totalPayment = monthlyPayment * totalPayments;
+  const totalInterest = totalPayment - principal;
+
+  setText("mortgageResult", `
+    Monthly Payment: ₹${monthlyPayment.toFixed(2)}  
+    | Total Payment: ₹${totalPayment.toFixed(2)}  
+    | Total Interest: ₹${totalInterest.toFixed(2)}
+  `);
+}
