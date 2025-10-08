@@ -656,3 +656,202 @@ body {
         color: white;
     }
 }
+
+/* ---------------- Mobile Responsiveness ---------------- */
+
+/* Tablets and medium devices */
+@media only screen and (max-width: 1024px) {
+    html {
+        font-size: 20px;
+    }
+
+    .dashboard-section {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    .userProfile-Details-div {
+        width: 35%;
+        padding: 2rem 1rem 4rem 1rem;
+    }
+
+    .Academic-Details-div {
+        width: 60%;
+    }
+
+    .other-academic-detail-container {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .sub-element {
+        width: 12rem;
+        height: 12rem;
+        padding: 1.5rem;
+    }
+
+    .sub-element .image-with-txt img {
+        width: 3.5rem;
+    }
+
+    .sub-element .image-with-txt p {
+        font-size: 0.8rem;
+    }
+
+    .sub-elment-btn {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .current-module-container {
+        padding: 1.5rem;
+    }
+
+    .chapter-content {
+        min-width: 6rem;
+        min-height: 8rem;
+    }
+
+    .chapter-title {
+        font-size: 0.55rem;
+    }
+
+    #explore-chapters {
+        padding: 0.3rem 4rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Mobile devices */
+@media only screen and (max-width: 768px) {
+    html {
+        font-size: 18px;
+    }
+
+    .dashboard-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .userProfile-Details-div {
+        width: 100%;
+        padding: 2rem 1rem 4rem 1rem;
+    }
+
+    .Academic-Details-div {
+        width: 100%;
+    }
+
+    .other-academic-detail-container {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .sub-element {
+        width: 90%;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .sub-element .image-with-txt img {
+        width: 3rem;
+    }
+
+    .sub-element .image-with-txt p {
+        font-size: 0.7rem;
+        top: 1.5rem;
+    }
+
+    .sub-elment-btn {
+        font-size: 0.6rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .current-module-container {
+        padding: 1rem;
+    }
+
+    .chapter-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .chapter-content {
+        min-width: 100%;
+        min-height: 7rem;
+    }
+
+    .chapter-title {
+        font-size: 0.5rem;
+    }
+
+    #explore-chapters {
+        padding: 0.3rem 3rem;
+        font-size: 0.7rem;
+    }
+
+    .cur-modal-content {
+        width: 95%;
+        height: 90%;
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+}
+
+/* Small mobile devices */
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 16px;
+    }
+
+    .userProfile-Details-div {
+        padding: 1.5rem 1rem 3rem 1rem;
+    }
+
+    .sub-element {
+        width: 100%;
+        padding: 0.8rem;
+    }
+
+    .sub-element .image-with-txt img {
+        width: 2.5rem;
+    }
+
+    .sub-element .image-with-txt p {
+        font-size: 0.6rem;
+        top: 1.2rem;
+    }
+
+    .sub-elment-btn {
+        font-size: 0.55rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .chapter-content {
+        min-width: 100%;
+        min-height: 6rem;
+    }
+
+    .chapter-title {
+        font-size: 0.45rem;
+    }
+
+    #explore-chapters {
+        padding: 0.3rem 2rem;
+        font-size: 0.65rem;
+    }
+
+    .cur-modal-content {
+        width: 98%;
+        height: 85%;
+        margin: 0.5rem auto;
+        padding: 0.8rem;
+    }
+
+    .progress-container {
+        width: 100%;
+    }
+}
