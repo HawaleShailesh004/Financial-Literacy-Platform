@@ -64,7 +64,9 @@ The primary goal of this project was to create an accessible platform where user
 | ------------------------------------------- | ---------------------------------------- |
 | ![Calculators](screenshots/calculators.png) | ![Blog Index](screenshots/blogindex.png) |
 
----
+| Mortgage Calculator                         | Retirement Calculator                     |
+| ------------------------------------------- | ---------------------------------------- |
+| ![Mortgage Calculator](screenshots/mortgage-calculator.png) | ![Retirement Calculator](screenshots/retirement-calculator.png) |
 
 ## ⭐ Features
 
@@ -79,6 +81,9 @@ The primary goal of this project was to create an accessible platform where user
   * **Loan Repayment Calculator**
   * **Tax Saving Calculator**
   * **Budget Planner**
+  * **Mortgage Calculator**
+  * **Retirment Calculator**
+
     
 * **Modules and Chapters:**
   * 7 core modules, each with 5 chapters.
