@@ -101,47 +101,115 @@
 <div id="taxEstimator" class="calculator {% if not show_tax_estimator %}hidden{% endif %}">
     <h2>Tax Estimator</h2>
     <form id="taxForm">
-      <div class="input-group">
-        <label for="age">Age:</label>
-        <input type="number" id="age" placeholder="Enter your age">
-      </div>
-  
-      <div class="tax-inputs">
         <div class="input-group">
-            <h2>Income Sources</h2>
-            <label for="incomeSalary">Salary:</label>
-            <input type="number" id="incomeSalary" placeholder="Enter salary income" title="Income earned from your regular employment">
-            <label for="incomeHouseProperty">House Property:</label>
-            <input type="number" id="incomeHouseProperty" placeholder="Enter income from house property" title="Rental income or any other income from your property">
-            <label for="incomeCapitalGains">Capital Gains:</label>
-            <input type="number" id="incomeCapitalGains" placeholder="Enter capital gains income" title="Profits from selling capital assets like stocks, mutual funds, etc.">
-            <label for="incomeBusiness">Business/Profession:</label>
-            <input type="number" id="incomeBusiness" placeholder="Enter income from business/profession" title="Income earned from your business or professional activities">
-            <label for="incomeOtherSources">Other Sources:</label>
-            <input type="number" id="incomeOtherSources" placeholder="Enter income from other sources" title="Income from any other source not mentioned above">
-          </div>
-  
-        <div class="input-group">
-            <h2>Deductions</h2>
-            <label for="deduction80C">Sec 80C Investments:</label>
-            <input type="number" id="deduction80C" placeholder="Enter deductions under Sec 80C" title="Deductions allowed under Section 80C of the Income Tax Act for investments in specific schemes">
-            <label for="deduction80D">Medical Insurance:</label>
-            <input type="number" id="deduction80D" placeholder="Enter deductions for medical insurance" title="Deductions allowed for premiums paid towards health insurance policies">
-            <label for="deductionHRA">HRA Exemption:</label>
-            <input type="number" id="deductionHRA" placeholder="Enter HRA exemption amount" title="House Rent Allowance exemption received from your employer">
-            <label for="deductionInterestLoan">Interest on Home Loan:</label>
-            <input type="number" id="deductionInterestLoan" placeholder="Enter interest paid on home loan" title="Interest paid on a loan taken for purchase or construction of a residential property">
-            <label for="deductionProfessionalTax">Professional Tax Paid:</label>
-            <input type="number" id="deductionProfessionalTax" placeholder="Enter professional tax paid" title="Tax levied by some state governments on professions or trades">
-      
+            <label for="age">Age:</label>
+            <input type="number" id="age" placeholder="Enter your age">
         </div>
-      </div>
-  
-      <button type="button" id="calculateTaxButton" onclick="calculateTax()">Calculate Tax</button>
+
+        <div class="tax-inputs">
+            <div class="input-group">
+                <h2>Income Sources</h2>
+                <label for="incomeSalary">Salary:</label>
+                <input type="number" id="incomeSalary" placeholder="Enter salary income"
+                    title="Income earned from your regular employment">
+                <label for="incomeHouseProperty">House Property:</label>
+                <input type="number" id="incomeHouseProperty" placeholder="Enter income from house property"
+                    title="Rental income or any other income from your property">
+                <label for="incomeCapitalGains">Capital Gains:</label>
+                <input type="number" id="incomeCapitalGains" placeholder="Enter capital gains income"
+                    title="Profits from selling capital assets like stocks, mutual funds, etc.">
+                <label for="incomeBusiness">Business/Profession:</label>
+                <input type="number" id="incomeBusiness" placeholder="Enter income from business/profession"
+                    title="Income earned from your business or professional activities">
+                <label for="incomeOtherSources">Other Sources:</label>
+                <input type="number" id="incomeOtherSources" placeholder="Enter income from other sources"
+                    title="Income from any other source not mentioned above">
+            </div>
+
+            <div class="input-group">
+                <h2>Deductions</h2>
+                <label for="deduction80C">Sec 80C Investments:</label>
+                <input type="number" id="deduction80C" placeholder="Enter deductions under Sec 80C"
+                    title="Deductions allowed under Section 80C of the Income Tax Act for investments in specific schemes">
+                <label for="deduction80D">Medical Insurance:</label>
+                <input type="number" id="deduction80D" placeholder="Enter deductions for medical insurance"
+                    title="Deductions allowed for premiums paid towards health insurance policies">
+                <label for="deductionHRA">HRA Exemption:</label>
+                <input type="number" id="deductionHRA" placeholder="Enter HRA exemption amount"
+                    title="House Rent Allowance exemption received from your employer">
+                <label for="deductionInterestLoan">Interest on Home Loan:</label>
+                <input type="number" id="deductionInterestLoan" placeholder="Enter interest paid on home loan"
+                    title="Interest paid on a loan taken for purchase or construction of a residential property">
+                <label for="deductionProfessionalTax">Professional Tax Paid:</label>
+                <input type="number" id="deductionProfessionalTax" placeholder="Enter professional tax paid"
+                    title="Tax levied by some state governments on professions or trades">
+
+            </div>
+        </div>
+
+        <button type="button" id="calculateTaxButton" onclick="calculateTax()">Calculate Tax</button>
     </form>
     <div>Estimated Tax Liability: ₹<span id="taxLiability">0</span></div>
-  </div>
-  
+</div>
+
+<!-- Mortgage Calculator -->
+<div id="mortgageCalculator" class="calculator{% if not show_mortgage_calculator %} hidden{% endif %}">
+    <h2>Mortgage Calculator</h2>
+    <form id="mortgageForm">
+        <div class="input-group">
+            <label for="mortgageAmount">Loan Amount (₹):</label>
+            <input type="number" id="mortgageAmount" placeholder="Enter loan amount" required>
+        </div>
+        <div class="input-group">
+            <label for="mortgageInterest">Annual Interest Rate (%):</label>
+            <input type="number" id="mortgageInterest" placeholder="Enter interest rate" step="0.01" required>
+        </div>
+        <div class="input-group">
+            <label for="mortgageYears">Loan Term (Years):</label>
+            <input type="number" id="mortgageYears" placeholder="Enter loan term" required>
+        </div>
+        <div class="input-group">
+            <label for="propertyTax">Annual Property Tax (₹):</label>
+            <input type="number" id="propertyTax" placeholder="Enter property tax" required>
+        </div>
+        <div class="input-group">
+            <label for="insurance">Annual Insurance (₹):</label>
+            <input type="number" id="insurance" placeholder="Enter insurance" required>
+        </div>
+        <button type="button" id="cMortgage" onclick="calculateMortgage()">Calculate Mortgage</button>
+    </form>
+    <div id="mortgageResult"></div>
+</div>
+
+
+<!-- Retirement Calculator -->
+<div id="retirementCalculator" class="calculator{% if not show_retirement_calculator %} hidden{% endif %}">
+    <h2>Retirement Calculator</h2>
+    <form id="retirementForm">
+        <div class="input-group">
+            <label for="currentAge">Current Age:</label>
+            <input type="number" id="currentAge" placeholder="Enter current age" required>
+        </div>
+        <div class="input-group">
+            <label for="retirementAge">Retirement Age:</label>
+            <input type="number" id="retirementAge" placeholder="Enter retirement age" required>
+        </div>
+        <div class="input-group">
+            <label for="currentSavings">Current Savings (₹):</label>
+            <input type="number" id="currentSavings" placeholder="Enter current savings" required>
+        </div>
+        <div class="input-group">
+            <label for="monthlyContribution">Monthly Contribution (₹):</label>
+            <input type="number" id="monthlyContribution" placeholder="Enter monthly contribution" required>
+        </div>
+        <div class="input-group">
+            <label for="annualReturn">Expected Annual Return (%):</label>
+            <input type="number" id="annualReturn" placeholder="Enter expected return" step="0.01" required>
+        </div>
+        <button type="button" id="cRetirement" onclick="calculateRetirement()">Calculate Retirement Savings</button>
+    </form>
+    <div id="retirementResult"></div>
+</div>
 
 <!-- Dynamic Calculator Controls -->
 <div class="calculator-controls">
@@ -154,8 +222,9 @@
         <a href="{% url 'calculators_with_type' type='loan' %}" class="othercalcis">Loan Repayment Calculator</a>
         {% endif %}
         {% if type != 'investment' %}
-       
-        <a href="{% url 'calculators_with_type' type='investment' %}" class="othercalcis">Investment Return Calculator</a>
+
+        <a href="{% url 'calculators_with_type' type='investment' %}" class="othercalcis">Investment Return
+            Calculator</a>
         {% endif %}
         {% if type != 'budget' %}
         <a href="{% url 'calculators_with_type' type='budget' %}" class="othercalcis">Budget Planner</a>
@@ -163,7 +232,13 @@
         {% if type != 'tax' %}
         <a href="{% url 'calculators_with_type' type='tax' %}" class="othercalcis">Tax Estimator</a>
         {% endif %}
-       
+        {% if type != 'mortgage' %}
+        <a href="{% url 'calculators_with_type' type='mortgage' %}" class="othercalcis">Mortgage Calculator</a>
+        {% endif %}
+        {% if type != 'retirement' %}
+        <a href="{% url 'calculators_with_type' type='retirement' %}" class="othercalcis">Retirement Calculator</a>
+        {% endif %}
+
     </div>
 </div>
 

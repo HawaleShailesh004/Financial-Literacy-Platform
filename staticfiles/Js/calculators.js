@@ -78,6 +78,58 @@ document.addEventListener("DOMContentLoaded", function () {
     updateRemainingBudget();
   }
 
+    // Mortgage Calculator
+  function calculateMortgage() {
+    const principal = parseFloat(document.getElementById("mortgageAmount").value);
+    const interestRate = parseFloat(document.getElementById("mortgageInterest").value) / 100 / 12;
+    const years = parseInt(document.getElementById("mortgageYears").value);
+    const tax = parseFloat(document.getElementById("propertyTax").value) || 0;
+    const insurance = parseFloat(document.getElementById("insurance").value) || 0;
+
+    const totalPayments = years * 12;
+    const x = Math.pow(1 + interestRate, totalPayments);
+    const monthlyPrincipalInterest = (principal * x * interestRate) / (x - 1);
+    const monthlyTax = tax / 12;
+    const monthlyInsurance = insurance / 12;
+
+    const totalMonthlyPayment = monthlyPrincipalInterest + monthlyTax + monthlyInsurance;
+
+    document.getElementById("mortgageResult").textContent =
+      `Total Monthly Payment: ₹${totalMonthlyPayment.toFixed(2)} (Principal + Interest + Tax + Insurance)`;
+  }
+
+  // Retirement Calculator
+  function calculateRetirement() {
+    const currentAge = parseInt(document.getElementById("currentAge").value);
+    const retirementAge = parseInt(document.getElementById("retirementAge").value);
+    const currentSavings = parseFloat(document.getElementById("currentSavings").value);
+    const monthlyContribution = parseFloat(document.getElementById("monthlyContribution").value);
+    const annualReturn = parseFloat(document.getElementById("annualReturn").value) / 100;
+
+    const yearsToGrow = retirementAge - currentAge;
+    const monthsToGrow = yearsToGrow * 12;
+    const monthlyRate = annualReturn / 12;
+
+    let futureValue = currentSavings * Math.pow(1 + monthlyRate, monthsToGrow);
+
+    for (let i = 0; i < monthsToGrow; i++) {
+      futureValue += monthlyContribution * Math.pow(1 + monthlyRate, monthsToGrow - i);
+    }
+
+    document.getElementById("retirementResult").textContent =
+      `Estimated Retirement Savings: ₹${futureValue.toFixed(2)}`;
+  }
+
+  // Add event listeners for the new calculators
+  document
+    .getElementById("cMortgage")
+    .addEventListener("click", calculateMortgage);
+
+  document
+    .getElementById("cRetirement")
+    .addEventListener("click", calculateRetirement);
+
+
   function updateRemainingBudget() {
     const income =
       parseFloat(document.getElementById("monthlyIncome").value) || 0;
