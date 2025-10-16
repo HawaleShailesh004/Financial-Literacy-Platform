@@ -20,16 +20,21 @@ def blog_detail(request, id):
     return render(request, 'blog.html', {'blog': blog})
 
 def calculators(request, type='loan'):
-    valid_types = ['loan', 'investment', 'savings', 'budget', 'tax']
+    # Add new calculators here
+    valid_types = ['loan', 'investment', 'savings', 'budget', 'tax', 'mortgage', 'retirement']
+
     if type not in valid_types:
         type = "loan"
 
     context = {
-        'type' : type,
+        'type': type,
         'show_loan_calculator': type == 'loan',
         'show_investment_calculator': type == 'investment',
         'show_savings_calculator': type == 'savings',
         'show_budget_planner': type == 'budget',
-        'show_tax_estimator': type == 'tax'
+        'show_tax_estimator': type == 'tax',
+        'show_mortgage_calculator': type == 'mortgage',
+        'show_retirement_calculator': type == 'retirement',
     }
+
     return render(request, 'calculators.html', context)

@@ -52,11 +52,11 @@ def signUp(request):
         email = request.POST.get('email')
         password = request.POST.get('pass')
 
-        # Basic server-side validation example
+        # server-side validation
         if not all([fname, uname, email, password]):
             return JsonResponse({'success': False, 'error_message': 'All fields  are required'}, status=400)
 
-        # Simulate creating a user or another operation
+        # creating a user 
         user = Cs(name = fname, uname = uname, email = email, password = password)
         user.save()
         print(f"First Name: {fname}, Username: {uname}, Email: {email}")
